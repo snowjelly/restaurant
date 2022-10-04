@@ -1,8 +1,9 @@
 export default function addHomeContent() {
   const content = document.querySelector('#content');
   
-  const div = document.createElement('div');
-  div.innerHTML = `
+  const hero = document.createElement('div');
+  hero.classList.add('hero');
+  hero.innerHTML = `
   <h2>
     Papa Pizza has been hard at work
   </h2>
@@ -12,7 +13,7 @@ export default function addHomeContent() {
   <p class="signature">
     Papa knows best - Papa Pizza
   </p>`;
-  
-  content.appendChild(div);
+
+  content.appendChild(hero);
 
 }
