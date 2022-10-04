@@ -2,14 +2,10 @@ import cheesePizzaImage from './cheese-pizza.jpg';
 import tripleMeatPizzaImage from './triple-meat.jpg';
 import tomatoPizzaImage from './tomato-pizza.jpg';
 
-export default function addFeaturedContent() {
+const addFeaturedContent = () => {
   const content = document.querySelector('#content');
-  const header = document.createElement('div');
   const featured = document.createElement('div');
   const imageContainer = document.createElement('div');
-
-  header.classList.add('header');
-  header.innerHTML = "<h1>Papa Pizza's Pizzeria</h1>"
 
   imageContainer.classList.add('image-container');
 
@@ -40,7 +36,9 @@ export default function addFeaturedContent() {
   createFeaturedFood(tripleMeatPizzaImage, 'Triple Meat', "Pepperoni, Ham, and Beef");
   createFeaturedFood(tomatoPizzaImage, 'Tangy Twist', "Papa Pizza's Famous Tomato Pizza");
 
-
-  content.appendChild(header);
   content.appendChild(featured);
+}
+
+export default function addMenuContent() {
+  addFeaturedContent();
 }
