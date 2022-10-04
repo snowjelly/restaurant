@@ -21,13 +21,17 @@ header.innerHTML = `
 
 const tabList = document.querySelector('.tab-list');
 tabList.addEventListener('click', function (e) {
+  const contentChild = document.querySelector('#content > div');
   if (e.target.id === 'home') {
+    contentChild.remove();
     addHomeContent();
   }
   else if (e.target.id === 'menu') {
+    contentChild.remove();
     addMenuContent();
   }
   else if (e.target.id === 'contact ') {
+    contentChild.remove();
     addContactUsContent();
   }
 });
