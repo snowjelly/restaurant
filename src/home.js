@@ -1,3 +1,5 @@
+import papaPizzaImage from './papa-pizza.jpg';
+
 export default function addHomeTabContent() {
   const content = document.querySelector('#content');
   
@@ -14,5 +16,11 @@ export default function addHomeTabContent() {
     Papa knows best - Papa Pizza
   </p>`;
 
+  const photographerElement = document.createComment(`<!--Photographed by Johan Bender on unsplash.com-->`);
+  const papaPizza = new Image();
+  papaPizza.src = papaPizzaImage;
+
+  hero.appendChild(photographerElement);
+  hero.appendChild(papaPizza);
   content.appendChild(hero);
 }

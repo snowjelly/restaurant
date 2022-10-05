@@ -13,9 +13,11 @@ const addFeaturedContent = () => {
   featured.innerHTML = "<h2>Featured items:</h2>";
   featured.appendChild(imageContainer);
 
-  const createFeaturedFood = (imageSrc, name, description) => {
+  const createFeaturedFood = (imageSrc, photographer, name, description) => {
     const imageContent = document.createElement('div');
     imageContent.classList.add('image-content');
+
+    const photographerElement = document.createComment(`<!--Photographed by ${photographer} on unsplash.com-->`);
 
     const imageElement = new Image();
     imageElement.src = imageSrc;
@@ -26,15 +28,16 @@ const addFeaturedContent = () => {
     nameElement.textContent = name;
     descriptionElement.textContent = description;
 
+    imageContent.appendChild(photographerElement);
     imageContent.appendChild(imageElement);
     imageContent.appendChild(nameElement);
     imageContent.appendChild(descriptionElement);
     imageContainer.appendChild(imageContent);
   }
 
-  createFeaturedFood(cheesePizzaImage, 'The Classic', "Papa Pizza's Classic Mozzarella Cheese");
-  createFeaturedFood(tripleMeatPizzaImage, 'Triple Meat', "Pepperoni, Ham, and Beef");
-  createFeaturedFood(tomatoPizzaImage, 'Tangy Twist', "Papa Pizza's Famous Tomato Pizza");
+  createFeaturedFood(cheesePizzaImage, 'Ivan Torres', 'The Classic', "Papa Pizza's Classic Mozzarella Cheese");
+  createFeaturedFood(tripleMeatPizzaImage, 'Fernando Andrade', 'Triple Meat', "Pepperoni, Ham, and Beef");
+  createFeaturedFood(tomatoPizzaImage, 'Saahil Khatkhate', 'Tangy Twist', "Papa Pizza's Famous Tomato Pizza");
 
   content.appendChild(featured);
 }
