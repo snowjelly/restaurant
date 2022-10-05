@@ -1,4 +1,4 @@
-export default function addHomeContent() {
+export default function addHomeTabContent() {
   const content = document.querySelector('#content');
   
   const hero = document.createElement('div');
@@ -15,5 +15,4 @@ export default function addHomeContent() {
   </p>`;
 
   content.appendChild(hero);
-
 }

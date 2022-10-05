@@ -39,6 +39,6 @@ const addFeaturedContent = () => {
   content.appendChild(featured);
 }
 
-export default function addMenuContent() {
+export default function addMenuTabContent() {
   addFeaturedContent();
 }

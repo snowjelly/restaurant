@@ -88,7 +88,6 @@ ul {
   font-size: 2rem;
 }
 
-
 @font-face {
   font-family: 'ComforterBrush';
   src: url(./ComforterBrush-Regular.ttf);
@@ -97,4 +96,16 @@ ul {
   font-family: 'ComforterBrush';
   font-size: 5rem;
   color: blanchedalmond;
+}
+
+.tab-list li:hover {
+  cursor: pointer;
+}
+
+.cover {
+  background-color: var(--slate-400);
+}
+
+.tab-list li.cover:hover {
+  cursor: text;
 }

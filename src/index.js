@@ -1,7 +1,7 @@
 import './style.css';
-import addMenuContent from './menu';
-import addHomeContent from './home';
-import addContactUsContent from './contact';
+import addMenuTabContent from './menu';
+import addHomeTabContent from './home';
+import addContactTabContent from './contact';
 
 console.log('Hello world');
 
@@ -12,7 +12,7 @@ header.innerHTML = `
 <h1>Papa Pizza's Pizzeria</h1>
 <nav>
   <ul class="tab-list">
-    <li id="home">Home</li>
+    <li id="home" class="cover">Home</li>
     <li id="menu">Menu</li>
     <li id="contact">Contact</li>
   </ul>
@@ -21,22 +21,27 @@ header.innerHTML = `
 
 const tabList = document.querySelector('.tab-list');
 tabList.addEventListener('click', function (e) {
+  if (e.target === tabList) return;
   const contentChild = document.querySelector('#content > div');
+
   if (e.target.id === 'home') {
-    contentChild.remove();
-    addHomeContent();
+    addHomeTabContent();
   }
   else if (e.target.id === 'menu') {
-    contentChild.remove();
-    addMenuContent();
+    addMenuTabContent();
   }
-  else if (e.target.id === 'contact ') {
-    contentChild.remove();
-    addContactUsContent();
+  else if (e.target.id === 'contact') {
+    addContactTabContent();
   }
+  contentChild.remove();
+  for (let i=0;i<tabList.children.length; i++) {
+    if (e.target.className === 'cover') return;
+    tabList.children[i].classList.remove('cover');
+  }
+  e.target.classList.add('cover');
 });
 
 const tabContainer = document.createElement('div');
 tabContainer.classList.add('tab-container');
 
-addHomeContent();
+addHomeTabContent();
