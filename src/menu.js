@@ -2,15 +2,16 @@ import cheesePizzaImage from './cheese-pizza.jpg';
 import tripleMeatPizzaImage from './triple-meat.jpg';
 import tomatoPizzaImage from './tomato-pizza.jpg';
 
+const content = document.querySelector('#content');
+
 const addFeaturedContent = () => {
-  const content = document.querySelector('#content');
   const featured = document.createElement('div');
   const imageContainer = document.createElement('div');
 
   imageContainer.classList.add('image-container');
 
   featured.classList.add('featured');
-  featured.innerHTML = "<h2>Featured items:</h2>";
+  featured.innerHTML = "<h2>Featured</h2>";
   featured.appendChild(imageContainer);
 
   const createFeaturedFood = (imageSrc, photographer, name, description) => {
@@ -42,6 +43,30 @@ const addFeaturedContent = () => {
   content.appendChild(featured);
 }
 
+const addMenuCards = () => {
+  const menu = document.createElement('div');
+  menu.classList.add('menu');
+  menu.innerHTML = `<h2>Menu</h2>`;
+  content.appendChild(menu);
+
+  const menuCardContainer = document.createElement('div');
+  menuCardContainer.classList.add('menu-card-container');
+  menu.appendChild(menuCardContainer);
+
+  const cardNames = ['Appetizers', 'Salads', 'Sandwiches', 'Pastas', 'Specialty Pizzas', 'Create Your Own', 'Beverages', 'Deserts'];
+
+  for (let i=0;i<cardNames.length;i++) {
+    const cardContent = document.createElement('div');
+    cardContent.classList.add('menu-card-content');
+    const cardNameElement = document.createElement('h3');
+    cardNameElement.textContent = cardNames[i];
+
+    cardContent.appendChild(cardNameElement);
+    menuCardContainer.appendChild(cardContent);
+  }
+}
+
 export default function addMenuTabContent() {
   addFeaturedContent();
+  addMenuCards();
 }

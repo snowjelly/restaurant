@@ -22,7 +22,11 @@ header.innerHTML = `
 const tabList = document.querySelector('.tab-list');
 tabList.addEventListener('click', function (e) {
   if (e.target === tabList) return;
-  const contentChild = document.querySelector('#content > div');
+  const contentChildren = document.querySelectorAll('#content > *');
+
+  for (let child of contentChildren) {
+    child.remove();
+  }
 
   if (e.target.id === 'home') {
     addHomeTabContent();
@@ -33,7 +37,7 @@ tabList.addEventListener('click', function (e) {
   else if (e.target.id === 'contact') {
     addContactTabContent();
   }
-  contentChild.remove();
+
   for (let i=0;i<tabList.children.length; i++) {
     if (e.target.className === 'cover') return;
     tabList.children[i].classList.remove('cover');
@@ -44,4 +48,6 @@ tabList.addEventListener('click', function (e) {
 const tabContainer = document.createElement('div');
 tabContainer.classList.add('tab-container');
 
-addHomeTabContent();
+//addHomeTabContent();
+//addMenuTabContent();
+addContactTabContent();
