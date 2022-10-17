@@ -48,6 +48,6 @@ tabList.addEventListener('click', function (e) {
 const tabContainer = document.createElement('div');
 tabContainer.classList.add('tab-container');
 
-//addHomeTabContent();
+addHomeTabContent();
 //addMenuTabContent();
-addContactTabContent();
+//addContactTabContent();
